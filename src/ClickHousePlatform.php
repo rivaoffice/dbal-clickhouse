@@ -1306,7 +1306,9 @@ class ClickHousePlatform extends AbstractPlatform
      */
     public function quoteStringLiteral($str): string
     {
-        return parent::quoteStringLiteral(addslashes($str));
+        $str = str_replace('\\', '\\\\', $str);
+        
+        return parent::quoteStringLiteral($str);
     }
 
     /**
@@ -1314,7 +1316,9 @@ class ClickHousePlatform extends AbstractPlatform
      */
     public function quoteSingleIdentifier($str): string
     {
-        return parent::quoteSingleIdentifier(addslashes($str));
+        $str = str_replace('\\', '\\\\', $str);
+        
+        return parent::quoteSingleIdentifier($str);
     }
 
     /**
