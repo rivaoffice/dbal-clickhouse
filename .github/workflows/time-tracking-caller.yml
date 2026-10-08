@@ -1,0 +1,16 @@
+name: Time Tracking Caller 
+
+on:
+  workflow_dispatch:
+  
+  issue_comment:
+    types:
+      - created
+      - edited
+      - deleted
+
+jobs:
+  time-tracking:
+    uses: rivaoffice/internal/.github/workflows/time-tracking.yml@master
+    permissions:
+      issues: write
